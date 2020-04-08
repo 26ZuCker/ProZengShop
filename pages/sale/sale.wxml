@@ -1,0 +1,81 @@
+<van-tabs sticky animated swipeable>
+  <van-tab title="未使用" dot="{{allOrder.length != 0}}">
+  
+  <view class="container" wx:if="{{allOrder.length != 0}}">
+      <view style='margin:10px;' wx:for="{{allOrder}}" wx:key="item">
+        <view class="stamp stamp01">
+          <view class='wrap'>
+          <view class="par">
+              <text class='title'>优惠券</text>
+              <text class="sign">￥</text>
+              <text class='span'>{{item.price}}.00</text>
+              <text class='s'>优惠券</text>
+              <text class='p'>满{{item.nprice}}元可用</text>
+          </view>
+          <view class="copy">即将过期<text class='p'>{{item.createdAt}}</text> <text class='p' style='margin-top:0'>{{item.updateAt}}</text></view>
+          <view class='i'></view>
+          </view>
+        </view>
+        </view>
+    </view>
+     <view wx:else>
+        <view class="noOrder">
+                <van-icon name="coupon-o"  size="50px"/>
+                <view class="text">没有未使用的红包</view>
+        </view>
+    </view> 
+  </van-tab>
+
+  <van-tab title="已使用" dot="{{noPayment.length != 0}}">
+<view class="container" wx:if="{{noPayment.length != 0}}">
+        <view style='margin:10px;' wx:for="{{noPayment}}" wx:key="item">
+        <view class="stamp stamp02">
+          <view class='wrap'>
+          <view class="par">
+              <text class="sign">￥</text>
+              <text class='span'>{{item.price}}.00</text>
+              <text class='s'>优惠券</text>
+              <text class='p'>满{{item.nprice}}元可用</text>
+          </view>
+          <view class="copy">已经使用<text class='p'>{{item.createdAt}}</text> <text class='p' style='margin-top:0'>{{item.updateAt}}</text></view>
+          <view class='i'></view>
+          </view>
+        </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="noOrder">
+                <van-icon name="coupon-o"  size="50px"/>
+                <view class="text">没有已使用的红包</view>
+        </view>
+    </view>
+  </van-tab>
+
+  <van-tab title="已过期" dot="{{shipments.length != 0}}">
+
+ <view class="container" wx:if="{{shipments.length != 0}}">
+        <view style='margin:10px;' wx:for="{{shipments}}" wx:key="item">
+        <view class="stamp stamp03">
+          <view class='wrap'>
+          <view class="par">
+              <text class="sign">￥</text>
+              <text class='span'>{{item.price}}.00</text>
+              <text class='s'>优惠券</text>
+              <text class='p'>满{{item.nprice}}元可用</text>
+          </view>
+          <view class="copy">已经过期<text class='p'>{{item.createdAt}}</text> <text class='p' style='margin-top:0'>{{item.updateAt}}</text></view>
+          <view class='i'></view>
+          </view>
+        </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="noOrder">
+                <van-icon name="coupon-o"  size="50px"/>
+                <view class="text">没有已过期的红包</view>
+        </view>
+    </view>
+
+  </van-tab>
+
+</van-tabs>

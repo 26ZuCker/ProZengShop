@@ -1,0 +1,31 @@
+/* pages/order/index.wxss */
+.van-swipe-cell__rightB {
+    display: inline-block;
+    width: 40px;
+    height: 90px;
+    font-size: 15px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    background-color: #ee0a24;
+  }
+  .van-swipe-cell__rightA {
+    display: inline-block;
+    width: 40px;
+    height: 90px;
+    font-size: 15px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    background-color: hsl(144, 92%, 49%);
+  }
+  .noOrder{
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+  }
+  .noOrderImg{
+    width: 81rpx;
+    height: 96rpx;
+    margin-bottom: 31rpx;
+  }

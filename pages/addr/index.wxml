@@ -1,0 +1,43 @@
+<van-cell-group>
+    <van-field value="{{name}}" center clearable label="收件人" placeholder="请输入收件人" bindchange="changeA"/>
+    <van-field value="{{tel}}" center clearable label="联系电话" type="number" placeholder="请输入联系电话" bindchange="changeB"/>
+    <van-area
+    value="{{ value }}"
+    area-list="{{ areaList }}"
+    bind:confirm="onConfirm"
+    bind:cancel="onCancel"
+    bind:change="changeC"
+/>
+<van-cell title="区域" value="{{province}}-{{city}}-{{place}}" />
+    <!--
+<picker mode="selector" range="{{area}}" bindchange="onAreaChange" name = "area" value = "{{areaIndex}}">{{ area[areaIndex] }}</picker>      
+    -->
+    <van-field value="{{home}}" center clearable label="详细地址"  placeholder="请输入详细地址" bindchange="changeD"/>
+    <van-cell title="默认地址">
+    <view slot="icon">
+      <van-icon name="{{iconType}}" size="30px"/></view>
+    <view slot="right-icon">
+      <van-switch checked="{{default}}" bind:change="onChangeT" />
+    </view>
+</van-cell>
+   <!--
+       <van-field value="{{mailcode}}" center clearable label="邮政编码" placeholder="请随意输入邮政编码"  bindchange="changeE"/>
+   --> 
+    <!--
+  <van-panel><van-switch checked="{{ checked }}" bind:change="onChangeB"/>
+    默认地址</van-panel>
+    -->
+    <van-panel>
+    
+
+     </van-panel>
+
+     <view class="F">
+     <van-button round size="normal" type="primary" bindtap="addAddr">保存</van-button>
+    
+    <van-button round size="normal" bindtap="showDialog" type="danger"  wx:if="{{canAdd}}">删除</van-button>
+     <van-button round size="normal" wx:else>删除</van-button>
+     </view>
+  </van-cell-group>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />

@@ -1,0 +1,55 @@
+<view class='coupon-wrap' wx:if="{{showCoupon}}">
+  <view class='coupon-row' wx:for="{{allOrder}}" wx:key="item">
+    <view class='coupon'>
+      <view class='date'>{{item.updateAt}} 过期</view>
+      <view class='price'>
+        ￥
+        <text>{{ item.price }}</text>
+      </view>
+      <view class='des'>
+        满
+        <text class='maxprice'>{{item.nprice}}</text>元可用
+      </view>
+    </view>
+    <view class='coupon-get' bindtap='setCoupon' data-id="{{ item.objectId }}" data-price="{{item.price}}">立即使用</view>
+  </view>
+</view>
+
+<van-cell title="收货人：{{name}}" value="收货地址：{{addrdetail}}" size="large" label="{{tel}}" icon="location-o" wx:if="{{showAddr}}" bindtap='getAddress' center/>
+
+<van-cell title="请选择地址" bindtap='getAddress' is-link/>
+
+<view wx:for="{{detail}}">
+<van-card  num="{{item.number}}" price="￥{{item.price}}" desc="{{item.option}}" title="{{item.name}}"
+  thumb="{{item.pic}}"
+/>
+
+</view>
+   <van-cell title="配送方式" value="快递" bindtap="showdetail"/>
+   <van-field value="{{remarks}}"
+    label="备注"
+    placeholder="给商家留言"
+    border="true"
+    bind:change="onChange"
+    input-align="right"
+    name="remark"
+    />
+  <van-panel title="商品金额" status="￥{{goodMoney}}"></van-panel>
+  
+  <view  bindtap='getCoupon'>
+  <van-cell title="优惠" value="使用优惠" is-link wx:if="{{allOrder.length != 0}}"/>
+  <van-cell value="无优惠可用"  wx:else/>
+ <van-panel title="折扣" status="-{{coupon.price}}" wx:if="{{coupon}}"></van-panel>
+  </view>
+
+<view class="A"></view>
+  <van-cell-group>
+  <van-panel title="合计" status="￥{{totalMoney-price}}"></van-panel>
+  <van-panel title="运费" status="￥{{fare > 0 ? fare : '免运费'}}"></van-panel>
+  </van-cell-group>
+
+  <van-button wx:if="{{place}}"  type="danger" round block loading loading-text="提交中"></van-button>
+  <van-button wx:else  type="danger" round block bindtap="placeOrder">提交订单</van-button>  
+
+  <van-notify id="van-notify" />
+  <van-toast id="van-toast" />

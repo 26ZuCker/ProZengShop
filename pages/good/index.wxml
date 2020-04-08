@@ -1,0 +1,83 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper'>
+  <block wx:for="{{imgUrls}}" wx:key="*this">  
+    <swiper-item>  
+        <image src="{{item}}" class="slide-image" width="355" height="240" mode='aspectFit'/>  
+    </swiper-item>  
+  </block>  
+</swiper> 
+
+<van-panel title="{{detail.menu_name}}" wx:if="{{!isOption || minPrice == maxPrice || optionIndex > -1}}" status="￥{{price}}"></van-panel>
+<van-panel title="{{detail.menu_name}}" wx:if="{{isOption && minPrice != maxPrice && optionIndex == -1}}" status="￥{{minPrice}}-{{maxPrice}}"></van-panel>
+<van-cell title="运费：￥{{fare}}" value="剩余:{{goodNum}}"/>
+<van-cell title="商品属性" is-link bindtap="placeOrder" data-name="options"/>
+
+          <text wx:if="{{optionIndex > -1}}">{{option[optionIndex].optionName}}</text>
+          <van-grid column-num="2">
+<van-grid-item icon="bag-o" text="店铺认证" />
+<van-grid-item icon="todo-list-o" text="担保交易" />
+    </van-grid>
+
+<van-cell title="商品详情"/>
+<view wx:for="{{imgUrls}}" wx:key="*this">
+<van-image width="800rpx" height="400rpx" fit="contain"
+  src="{{item}}"
+/>
+</view>
+<view style='padding-bottom:60rpx;'>
+        <view class="desc" style="margin:15px">
+              <import src="../../utils/wxParse/wxParse.wxml"/>
+              <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+        </view> 
+    </view>
+<van-goods-action custom-class="goods-action-position" safe-area-inset-bottom="{{ false }}">
+    <van-goods-action-icon
+      icon="wap-home-o"
+      text="首页"
+      bindtap="index"
+    />
+    <van-goods-action-icon
+      icon="cart-o"
+      text="购物车"
+      bindtap="cart"
+    />
+    <van-goods-action-button
+      text="加入购物车"
+      type="warning"
+      bindtap="placeOrder" data-name="cart"
+      class="C"
+    />
+    <van-goods-action-button
+      text="立即购买"
+      bindtap="placeOrder" data-name="order"
+      class="B"
+    />
+  </van-goods-action>
+<van-popup
+  show="{{ showPop }}"
+  closeable
+  round
+  position="bottom"
+  custom-style="height: 46%"
+  bind:close="onClose"
+>
+<van-panel>
+  <image src="{{detail.menu_logo}}" style="height:200rpx;width:200rpx;margin-right:10px"/> 
+  <text style="color:red">￥{{price}}</text>
+</van-panel>
+<view class="A"></view>
+<van-cell title="运费：￥{{fare}}" value="剩余:{{goodNum}}" />
+
+<view wx:if="{{isOption}}">
+<view data-opIndex="{{opi}}" wx:key="*this" wx:for="{{option}}" wx:for-item="opd" wx:for-index="opi" bindtap='selectOption'>
+<van-tag mark size="large" color="{{opi == optionIndex ?  '#ee1717':'#dadadaee'}}" text-color="#000">{{opd.optionName}}</van-tag>
+</view>
+</view>
+
+<van-cell title="购买数量"><van-stepper value="{{quantity1.quantity}}"  min="{{quantity1.min}}" max="{{quantity1.max}}" bind:change="onChangeV"/>
+</van-cell>
+<van-button type="danger" round block bindtap="addCart" wx:if="{{actionType == 'cart'}}">确定</van-button>
+<van-button type="danger" round block bindtap="payOrder" wx:if="{{actionType == 'order'}}">下一步</van-button>
+</van-popup>
+
+<!--弹出框-->
+<van-notify id="van-notify" />

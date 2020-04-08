@@ -1,0 +1,20 @@
+
+<view wx:if="show">
+<van-radio-group value="{{radio}}" bind:change="onChangeW">
+    <view wx:for="{{address}}">
+    <van-radio name="{{item.objectId}}" checked-color="#07c160">
+    <van-panel title="{{item.name}}" desc="{{item.tel}}" status="{{item.province}}-{{item.city}}-{{item.place}}" class="D">
+    <view>{{item.home}}</view>
+    </van-panel>
+    </van-radio>
+    </view>
+</van-radio-group>
+
+
+<view class="A">
+<van-icon name="checked" size="50px" color="{{color}}" bindtap="toPayOrder"/>
+</view>
+</view>
+<view wx:else class="Z">
+暂无地址，请先前往“我的”页面进行地址设置
+</view>

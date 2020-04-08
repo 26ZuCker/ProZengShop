@@ -1,0 +1,19 @@
+{"window":{
+    "navigationBarBackgroundColor": "#FAFAFA",
+    "navigationBarTitleText": "商城首页",
+    "navigationBarTextStyle":"black",
+    "backgroundTextStyle":"dark",
+    "backgroundColor": "#f9f9f9"
+  },
+  "usingComponents": {
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-icon": "../../dist/icon/index",
+    "van-search": "../../dist/search/index",
+  "van-grid": "../../dist/grid/index",
+  "van-grid-item": "../../dist/grid-item/index",
+  "van-panel": "../../dist/panel/index",
+     "van-tag": "../../dist/tag/index"
+  }
+
+}

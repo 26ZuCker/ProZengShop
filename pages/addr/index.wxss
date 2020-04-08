@@ -1,0 +1,6 @@
+/* pages/addr/index.wxss */
+.F{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

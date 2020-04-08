@@ -1,0 +1,55 @@
+<view class="userinfo">
+
+    <view class="A" wx:if="{{!hasUserInfo && canIUse}}">
+      <van-button icon="lock" bindgetuserinfo="getUserInfo" round size="large" open-type="getUserInfo" />
+      <text>获取用户信息</text>
+    </view>
+
+    <block wx:else class="AA">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+
+</view>
+
+<loading hidden="{{loading}}">
+    授权中...
+</loading>
+
+<!---->
+<van-cell class="B" title="我的优惠券" icon="coupon-o" size="100rpx" is-link bindtap="sale"/>
+
+  <van-collapse class="C" value="{{ activeName }}" bind:change="onChangeA" data-key="activeName" >
+
+  <van-collapse-item name="1">
+  <view slot="title"><van-icon name="balance-list-o" size="50rpx"/>我的订单</view>
+  <van-grid column-num="5">
+  <navigator url="/pages/order/index"><van-grid-item icon="bag-o" text="全部订单" /></navigator>
+  <navigator url="../order/index?id=1"><van-grid-item icon="todo-list-o" text="未付款" /></navigator>
+  <navigator url='../order/index?id=2'><van-grid-item icon="send-gift-o" text="未发货" /></navigator>
+  <navigator url='../order/index?id=3'><van-grid-item icon="logistics" text="待收货" /></navigator>
+   <navigator url='../order/index?id=4'><van-grid-item icon="passed" text="已完成" />
+   </navigator>
+    </van-grid>
+  </van-collapse-item>
+
+  <van-collapse-item name="2">
+  <view slot="title" bindtap="getAddr"><van-icon name="wap-home-o" size="50rpx"/>我的地址</view>
+  
+  <view wx:for="{{myAddr}}" wx:key="item">
+     <van-swipe-cell right-width="{{40}}" >
+      <van-panel title="{{item.name}}" desc="{{item.tel}}" status="{{item.province}}-{{item.city}}-{{item.place}}" class="D">
+      <van-tag wx:if="{{item.default}}"  mark type="danger">默认地址</van-tag>
+      <view>{{item.home}}</view>
+</van-panel>
+      <view slot="right" class="van-swipe-cell__rightC" bindtap="toaddress" data-id="{{item.objectId}}">编辑</view>
+     </van-swipe-cell>
+  </view>
+
+  <van-button icon="add" data-new="true" bindtap="addAddr" hairline
+ size="large"/>
+  </van-collapse-item>
+
+</van-collapse>
+
+<van-notify id="van-notify" />

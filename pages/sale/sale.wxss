@@ -1,0 +1,54 @@
+/* pages/order/index.wxss */
+page{background:#fff;}
+
+.no-order{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: -3rpx;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 203rpx;
+}
+.no-order-img{
+    width: 81rpx;
+    height: 96rpx;
+    margin-bottom: 31rpx;
+}
+.no-order .text{
+    font-size:28rpx;
+    color:#999999;
+    text-align: center
+}
+.noOrder{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+
+.stamp {width: 100%;height: 140px;padding: 0 20rpx;position: relative;overflow: hidden; box-sizing: border-box; color:#fff;}
+.stamp:before {content: '';position: absolute;top:0;bottom:0;left:10px;right:10px; z-index: 0}
+.stamp .wrap{ position: absolute; top: 0; left:0; right: 0; display: flex;}
+.stamp:after {content: '';position: absolute;left: 10px;top: 10px;right: 10px;bottom: 10px;box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);z-index: -2;}
+.stamp .title{ font-size: 30rpx; color: #FFF; display: block}
+.stamp .i{position: absolute;left: 20%;top: 45px;height: 190px;width: 390px;background-color: rgba(255,255,255,.15);transform: rotate(-30deg);}
+.stamp .par{float: left;padding: 16px 15px 16px 25px;width: 220px;border-right:2px dashed rgba(255,255,255,.3);text-align: left;}
+.stamp .par .p{ display: block; font-size: 28rpx}
+.stamp .par .s{ font-size: 30rpx}
+.stamp .par .span{font-size: 70rpx; margin-right: 5px;}
+.stamp .par .sign{font-size: 50rpx;}
+.stamp .par sub{position: relative;top:-5px;color:rgba(255,255,255,.8);}
+.stamp .copy{display: inline-block;padding:21px 14px;width:100px;vertical-align: text-bottom;font-size: 30rpx;color:rgb(255,255,255);}
+.stamp .copy .p{font-size: 28rpx;margin-top: 15px; display: block}
+
+.stamp01{background: #ff6060;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10rpx, #ff6060 10rpx);background-size: 30rpx 15rpx;background-position: 25rpx 6rpx;}
+.stamp01:before{background-color:#ff6060;}
+
+.stamp02{background: #50ADD3;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10rpx, #50ADD3 10rpx);background-size: 30rpx 15rpx;background-position: 25rpx 6rpx;}
+.stamp02:before{background-color:#50ADD3;}
+
+.stamp03{background: #999;background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10rpx, #999 10rpx);background-size: 30rpx 15rpx;background-position: 25rpx 6rpx;}
+.stamp03:before{background-color:#999;}

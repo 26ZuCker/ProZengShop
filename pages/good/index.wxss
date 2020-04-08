@@ -1,0 +1,24 @@
+/* example/btn/index.wxss */
+@import "../../utils/wxParse/wxParse.wxss";
+.slide-image{  
+    width: 100%;  
+}  
+.B{
+  position: relative;
+  left: 0rpx;
+  width: 10rpx;
+  color: #dadadaee;
+}
+.C{
+  position: relative;
+  left: 0rpx;
+  width: 10rpx;
+}
+.swiper{ height: 240px;}
+
+.swiper-tab{ margin-top:10px;height:20px;padding:10px 0;background:#fff;display:flex;font-size:17px;line-height:20px;border-bottom:1px solid #e6e6e6;}
+.swiper-tab-list{flex:1;text-align:center;position:relative;color:#787878;}
+.swiper-tab-list:first-of-type{border-right:1px solid #c8c8c8;}
+.swiper-tab-list.on{color:#fa4b22;}
+.swiper-tab-list.on::after{ content:"";height:2px;width:100px;background:#fa4b22;position:absolute;left:50%;margin-left:-50px;bottom:-10px;}
+

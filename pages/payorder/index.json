@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-panel": "../../dist/panel/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-icon": "../../dist/icon/index",
+    "van-field": "../../dist/field/index",
+    "van-card": "../../dist/card/index",
+    "van-button": "../../dist/button/index",
+    "van-notify": "../../dist/notify/index",
+    "van-toast": "../../dist/toast/index",
+     "van-tag": "../../dist/tag/index"
+  }
+}

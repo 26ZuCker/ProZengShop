@@ -1,0 +1,20 @@
+<van-swipe-cell right-width="{{ 80 }}" >
+
+    <van-card num="{{item.number}}" price="{{item.price}}" 
+    desc="{{item.addrdetail}}>>>{{item.user}}" title="{{item.name}}"
+  thumb="{{item.pic}}" >
+<view slot="tags">
+    <van-tag mark type="danger" plain>{{item.option}}</van-tag>
+    <van-tag mark type="success" plain>运费：{{item.fare}}</van-tag>
+  </view>
+  </van-card>
+    <view slot="right" class="van-swipe-cell__rightA" bindtap="showA" data-id="{{item.orderId}}">收货</view>
+     <view slot="right" class="van-swipe-cell__rightB" bindtap="showB" data-id="{{item.orderId}}">删除</view>
+  </van-swipe-cell>
+  <van-cell title="下单时间" value="{{item.createdAt}}"/>
+  <van-cell title="快递单号" value="{{item.expressId}}"/>
+  <van-cell title="订单编号" value="{{item.orderId}}"/>
+  <van-cell title="备注" value="{{item.remarks}}"/>
+  <van-cell title="合计" value="￥{{item.totalprice}}"/>
+
+  <view class="A"></view>

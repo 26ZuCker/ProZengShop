@@ -1,0 +1,11 @@
+/* pages/addrList/index.wxss */
+.D{
+  display: block;
+  width: 700rpx;
+}
+.Z{
+  text-align: center;
+}
+.A{
+  text-align: center;
+}

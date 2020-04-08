@@ -1,0 +1,38 @@
+<!--pages/shop/index.wxml-->
+<view class='search'>
+
+  <view class='search-value'>
+    <input placeholder='搜索商品' value='{{searchVal}}' bindconfirm="search" bindinput="input"></input>
+    <view class='clear' wx:if="{{ searchVal != '' }}" bindtap='clear'>
+      <image src='../../images/clear.png'></image>
+    </view>
+  </view>
+
+<view class='search-button' bindtap='search'>
+   <image src='../../images/search.png'></image>
+  </view>
+  
+</view>
+
+<view class='sort'>
+  <view class='item' bindtap="sortFun" data-data="1">
+  <text class='{{sortActive==1?"active":""}}'>综合</text><image class='item-active' src='{{urlA}}' mode="aspectFit"></image></view>
+  <view class='item' bindtap="sortFun" data-data="2">
+  <text class='{{sortActive==2?"active":""}}'>价格</text><image src='{{urlB}}' mode="aspectFit"></image></view>
+  <view class='item' bindtap="sortFun" data-data="3">
+  <text class='{{sortActive==3?"active":""}}'>销量</text><image src='{{urlC}}' mode="aspectFit"></image></view>
+</view>
+
+  <view wx:if="{{ goods.length == 0 }}" class="nogoods">
+    暂无商品
+  </view>
+
+<view wx:for="{{goods}}" wx:key="{{item}}" bindtap='router' data-id="{{item.objectId}}">
+
+   <van-card price="{{item.price}}" title="{{item.title}}" thumb="{{item.image}}" desc="销量：{{item.sale_number}}" origin-price="{{item.price * 2.0}}" tag="{{item.hot}}">
+  <view slot="footer">
+    <van-button round size="small" type="danger" bindtap='router' data-id="{{item.objectId}}">立即购买</van-button>
+  </view>
+  </van-card>
+
+</view>

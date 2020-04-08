@@ -1,0 +1,66 @@
+<import src="./template-order.wxml"/>
+<van-tabs sticky animated swipeable>
+<!--全部-->
+  <van-tab title="全部" dot="{{allOrder.length != 0}}">
+    <view class="container" wx:if="{{allOrder.length != 0}}">
+        <view wx:for="{{allOrder}}" wx:key="orderDetail"><include src="../order/template-order.wxml"/></view>
+    </view>
+        <view class="noOrder" wx:else>
+          <van-icon name="bill" size="80px"/>
+          <view class="text">暂无订单</view>
+    </view>
+  </van-tab>
+<!--待付款-->
+  <van-tab title="待付款" dot="{{noPayment.length != 0}}">
+    <view class="container" wx:if="{{noPayment.length != 0}}">
+        <view wx:for="{{noPayment}}">
+            <include src="../order/template-order.wxml"/>
+        </view>
+    </view>
+
+     <view class="noOrder" wx:else>
+          <van-icon name="bill" size="80px"/>
+          <view class="text">暂无订单</view>
+    </view>
+  </van-tab>
+<!--未发货-->
+  <van-tab title="未发货" dot="{{shipments.length != 0}}">
+       <view class="container" wx:if="{{shipments.length != 0}}">
+        <view wx:for="{{shipments}}" >
+            <include src="../order/template-order.wxml"/></view>
+      </view>
+        <view class="noOrder" wx:else>
+          <van-icon name="bill" size="80px"/>
+          <view class="text">暂无订单</view>
+    </view>
+  </van-tab>
+<!--已发货-->
+  <van-tab title="已发货" dot="{{Receiving.length != 0}}">
+     <view class="container" wx:if="{{Receiving.length != 0}}">
+        <view wx:for="{{Receiving}}" >
+            <include src="../order/template-order.wxml"/></view>
+     </view>
+        <view class="noOrder" wx:else>
+          <van-icon name="bill" size="80px"/>
+          <view class="text">暂无订单</view>
+    </view>
+  </van-tab>
+<!--已完成-->
+  <van-tab title="已完成" dot="{{finish.length != 0}}">
+
+   <view class="container" wx:if="{{finish.length != 0}}">
+        <view wx:for="{{finish}}">
+            <include src="../order/template-order.wxml"/>
+        </view>
+    </view>
+
+     <view class="noOrder" wx:else>
+          <van-icon name="bill" size="80px"/>
+          <view class="text">暂无订单</view>
+    </view>
+
+  </van-tab>
+
+</van-tabs>
+<van-dialog id="van-dialog" />
+<van-dialog id="van-dialog" />
