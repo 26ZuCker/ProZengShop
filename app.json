@@ -16,11 +16,10 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#FAFAFA",
-    "navigationBarTitleText": "deepcode商城",
+    "navigationBarTitleText": "真老师的小商城",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark",
-    "backgroundColor": "#f9f9f9",
-    "navigaitonStyle":"custom"
+    "backgroundColor": "#f9f9f9"
   },
   "debug": true,
   "tabBar": {

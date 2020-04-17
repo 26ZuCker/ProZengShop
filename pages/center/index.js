@@ -1,5 +1,4 @@
 const app = getApp()
-// pages/center/index.js
 import Notify from "../../dist/notify/notify";
 var Bmob = require("../../utils/Bmob-2.2.3.min.js");
 Page({
@@ -20,7 +19,7 @@ Page({
       this.showNotify();
     }
     else{
-      const { key } = event.currentTarget.dataset;
+      const {key} = event.currentTarget.dataset;
       this.setData({
       [key]: event.detail
     });
@@ -44,7 +43,7 @@ Page({
   onLoad:function(options){
     //初始化地址信息
     //页面初始化 options为页面跳转所带来的参数
-    this.getID();
+   // this.getID();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -71,23 +70,6 @@ Page({
         }
       })
     }
-    //var that = this;
-    //var value = wx.getStorageSync('openid')
-    //if (value) {
-      //var u = Bmob.Object.extend("_User");
-      //var query = new Bmob.Query(u);
-    //  const query =Bmob.Query("_User");
-    //  query.equalTo("openid","==" ,value);
-    //  query.find({
-    //    success: function (results) {
-    //      that.setData({    
-    //        userInfo: results[0],
-    //      })  
-    //    },
-    //    error: function (error) {
-    //    }
-    //  });
-   // }
   },
   onReady:function(){
     // 页面渲染完成
@@ -151,10 +133,14 @@ Page({
     });
   },
   getUserInfo: function(e) {
-    //console.log(wx.getStorageSync('openId'))
-    //this.getID();
-    //console.log(wx.getStorageSync('openId'))
-    this.setData({getId:true})
+    let a=new Promise((resolve,reject)=>{
+      console.log(wx.getStorageSync('openId'));
+      this.getID();
+      resolve("OK");
+    })
+    a.then(value=>{
+      console.log(wx.getStorageSync('openId'));
+      this.setData({getId:true});
     console.log(e);
     this.setInfo(e);
     app.globalData.userInfo = e.detail.userInfo
@@ -163,17 +149,16 @@ Page({
       hasUserInfo: true
     })
     this.getAddr();
+    }).catch(error=>{
+      console.log(error);
+    })
   },
-  getID(){
+  getID:function(){
     wx.cloud.callFunction({
       name: 'getOpenId',
       complete: res => {
         console.log('callFunction test result: ', res.result.openid);
         wx.setStorageSync('openId', res.result.openid);
-        //wx.setStorage({
-        //  data:  res.result.openid,
-        //  key: 'openId',
-        //})
       }
     })
   },
@@ -232,9 +217,9 @@ Page({
                 var userInfo = result.userInfo;
                 var nickName = userInfo.nickName;
                 var avatarUrl = userInfo.avatarUrl;
-
                 var u = Bmob.Object.extend("_User");
                 var query = new Bmob.Query(u);
+                //let query =Bmob.
                 // 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
                 query.get(user.id, {
                   success: function (result) {
@@ -252,7 +237,6 @@ Page({
                     }, 2000);
                   }
                 });
-                
               },fail:function(res){
                 that.setData({
                   loading: true
@@ -260,7 +244,6 @@ Page({
               }
             });
           }
-
         }, function (err) {
           console.log(err, 'errr');
         });

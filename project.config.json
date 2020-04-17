@@ -2,8 +2,8 @@
 	"description": "项目配置文件。",
 	"cloudfunctionRoot": "cloudFunction/",
 	"setting": {
-		"urlCheck": false,
-		"es6": true,
+		"urlCheck": true,
+		"es6": false,
 		"enhance": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
@@ -26,7 +26,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
 	"appid": "wx6d14f707de91ec7e",
-	"projectname": "%E5%95%86%E5%9F%8E%E7%A4%BA%E4%BE%8B",
+	"projectname": "ProZengShop",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

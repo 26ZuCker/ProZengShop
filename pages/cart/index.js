@@ -36,11 +36,13 @@ Page({
       this.onShow();
   },
   onShow: function(){
-      var shopList = [];
+      if(wx.getStorageSync('openId')!="A"){
+        var shopList = [];
       // 获取购物车数据
       var shopCarInfoMem = wx.getStorageSync('cartResult');
       this.data.goodsList.list = shopCarInfoMem;
       this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), shopCarInfoMem);
+      }
   },
   toIndexPage:function(){
     wx.navigateTo({

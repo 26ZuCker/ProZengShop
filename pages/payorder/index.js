@@ -3,6 +3,7 @@ var Bmob = require("../../utils/Bmob-2.2.3.min.js");
 var util = require("../../utils/util.js");
 import Notify from '../../dist/notify/notify';
 import Toast from "../../dist/toast/toast";
+var that=this;
 Page({
   data: {
     place:false,
@@ -19,7 +20,6 @@ Page({
     objectId:""
   },
   onLoad(opitions) {
-    that = this;
     if(Object.keys(opitions).length!=0){
       this.setData({objectId:opitions.objectId})
     }
